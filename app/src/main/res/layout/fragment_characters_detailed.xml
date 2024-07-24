@@ -3,12 +3,174 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.charactersDetailed.CharactersDetailedFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.charactersDetailed.CharactersDetailedFragment"
+    android:background="@color/light_black">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_detail_character"
+                android:layout_width="match_parent"
+                android:layout_height="360dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/light_black"
+                app:cardCornerRadius="45dp"
+                app:layout_constraintStart_toStartOf="@+id/img_detail_character"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="320dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Readhead Morty" />
+
+                    <ImageView
+                        android:id="@+id/img_status_of_character"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/circle"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_status"
+                        app:layout_constraintStart_toStartOf="@id/tv_name"
+                        app:layout_constraintTop_toTopOf="@id/tv_status" />
+
+                    <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/img_status_of_character"
+                        app:layout_constraintTop_toBottomOf="@id/tv_name"
+                        tools:text="Alive - Human" />
+
+                    <TextView
+                        android:id="@+id/tv_gender_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/gender"
+                        android:textColor="@color/light_grey"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@id/img_status_of_character"
+                        app:layout_constraintTop_toBottomOf="@id/img_status_of_character"
+                        android:textSize="14sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@id/tv_gender_desc"
+                        app:layout_constraintTop_toBottomOf="@id/tv_gender_desc"
+                        tools:text="Male"
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:id="@+id/tv_location_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/last_known_location"
+                        android:textColor="@color/light_grey"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@id/tv_gender"
+                        app:layout_constraintTop_toBottomOf="@id/tv_gender"
+                        android:textSize="14sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@id/tv_location_desc"
+                        app:layout_constraintTop_toBottomOf="@id/tv_location_desc"
+                        tools:text="Citadel of Ricks"
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:id="@+id/tv_created_time_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/created_time"
+                        android:textColor="@color/light_grey"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@id/tv_location"
+                        app:layout_constraintTop_toBottomOf="@id/tv_location"
+                        android:textSize="14sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_created_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@id/tv_created_time_description"
+                        app:layout_constraintTop_toBottomOf="@id/tv_created_time_description"
+                        tools:text="00:00:00"
+                        android:textSize="18sp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_margin="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rv_episodes"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_episode"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_created_time"
+                        />
+                    <ProgressBar
+                        android:id="@+id/pb_details"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
 
 </FrameLayout>

@@ -68,7 +68,7 @@ class CartoonFragment : Fragment(), OnClick {
     }
 
     override fun onClick(character: Character) {
-        val action = CartoonFragmentDirections.actionCharactersFragmentToCharactersDetailedFragment(character.id)
+        val action = CartoonFragmentDirections.actionCartoonFragmentToCharactersDetailedFragment(character.id)
         findNavController().navigate(action)
     }
 }

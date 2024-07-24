@@ -27,4 +27,20 @@ class CartoonRepository @Inject constructor(private val apiService: CartoonApiSe
         })
         return data
     }
+    fun getCharactersById(id: Int): LiveData<Resource<Character>> {
+        val data = MutableLiveData<Resource<Character>>()
+
+        data.postValue(Resource.Loading())
+
+        apiService.getCharacterById(id).enqueue(object : Callback<Character> {
+            override fun onResponse(call: Call<Character>, response: Response<Character>) {
+                data.postValue(Resource.Success(response.body()!!))
+            }
+
+            override fun onFailure(call: Call<Character>, t: Throwable) {
+                data.postValue(Resource.Error(t.message ?: "Unknown Error"))
+            }
+        })
+        return data
+    }
 }
