@@ -6,11 +6,10 @@ import androidx.lifecycle.ViewModel
 import com.example.rickandmorty.data.model.Character
 import com.example.rickandmorty.data.repositories.CartoonRepository
 import com.example.rickandmorty.utils.Resource
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 
-@HiltViewModel
-class CharactersDetailedViewModel @Inject constructor(
+
+
+class CharactersDetailedViewModel (
     private val repository: CartoonRepository
 ) : ViewModel() {
 

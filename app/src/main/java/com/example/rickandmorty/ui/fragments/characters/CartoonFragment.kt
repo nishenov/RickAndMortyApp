@@ -1,32 +1,25 @@
 package com.example.rickandmorty.ui.fragments.characters
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.rickandmorty.R
 import com.example.rickandmorty.data.model.Character
 import com.example.rickandmorty.databinding.FragmentCartoonBinding
 import com.example.rickandmorty.interfaces.OnClick
-import com.example.rickandmorty.ui.fragments.charactersDetailed.CharactersDetailedFragment
 import com.example.rickandmorty.utils.Resource
 import com.example.rickandmorty.utils.gone
 import com.example.rickandmorty.utils.visible
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class CartoonFragment : Fragment(), OnClick {
     private var _binding: FragmentCartoonBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy {
-        ViewModelProvider(this)[CartoonViewModel::class.java]
-    }
+    private val viewModel by viewModel<CartoonViewModel>()
 
     private val cartoonAdapter by lazy {
         CartoonAdapter(this)

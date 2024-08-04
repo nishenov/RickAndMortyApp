@@ -16,19 +16,17 @@ import com.example.rickandmorty.databinding.FragmentCharactersDetailedBinding
 import com.example.rickandmorty.utils.Resource
 import com.example.rickandmorty.utils.gone
 import com.example.rickandmorty.utils.visible
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-@AndroidEntryPoint
+
 class CharactersDetailedFragment : Fragment() {
     private var _binding: FragmentCharactersDetailedBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by lazy {
-        ViewModelProvider(this)[CharactersDetailedViewModel::class.java]
-    }
+    private val viewModel by viewModel<CharactersDetailedViewModel>()
 
     private val charactersDetailedAdapter by lazy {
         CharactersDetailedAdapter()

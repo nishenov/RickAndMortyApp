@@ -8,9 +8,8 @@ import com.example.rickandmorty.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import okio.IOException
 import retrofit2.HttpException
-import javax.inject.Inject
 
-class CartoonRepository @Inject constructor(private val apiService: CartoonApiService) {
+class CartoonRepository (private val apiService: CartoonApiService) {
     fun getAllCharacters(): LiveData<Resource<List<Character>>> = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {

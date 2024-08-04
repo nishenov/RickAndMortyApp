@@ -1,8 +1,17 @@
 package com.example.rickandmorty
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.example.rickandmorty.di.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
-@HiltAndroidApp
+
 class App : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        startKoin{
+            androidContext(this@App)
+            modules(appModule)
+        }
+    }
 }
