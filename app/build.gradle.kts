@@ -75,4 +75,10 @@ dependencies {
 
     //Glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    //Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    //View Model KTX
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
 }
